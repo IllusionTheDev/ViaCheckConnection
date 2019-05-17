@@ -8,4 +8,4 @@ If you have any bugs or need help, please open an issue in the "Issues" section
 You are allowed to contribute to my plugin.If you code in a pull request is false, you will be denied.
 For do a pull request, fork the source code and you can do :)
 
-© 2018 x9nico
+© 2019 x9nico
