@@ -32,6 +32,7 @@ public class Bungee extends Plugin implements Listener{
 		getProxy().getPluginManager().registerListener(this, this);
 		getProxy().getPluginManager().registerCommand(this, new ViaCheckCommand("viacheck"));
 		instance = this;
+		new Metrics(this);
 		/*boolean isUpdate = BungeeUpdater.checkForUpdate(this, 31805, false);
 		if(isUpdate){
 			getLogger().info("[ViaCheckConnection] Update available ! updating...");
@@ -66,7 +67,6 @@ public class Bungee extends Plugin implements Listener{
 				} catch (IOException e2) {
 					throw new RuntimeException("Unable to load configuration file.", e2);
 				}
-		        new Metrics(this);
 	}
 	
 	@SuppressWarnings({ "unchecked" })
