@@ -1,13 +1,6 @@
 package fr.x9nico.viacheckconnection.bungee;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import com.google.common.io.ByteStreams;
-
 import fr.x9nico.viacheckconnection.bungee.commands.ViaCheckCommand;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
@@ -20,6 +13,8 @@ import net.md_5.bungee.config.YamlConfiguration;
 import net.md_5.bungee.event.EventHandler;
 import us.myles.ViaVersion.api.Via;
 import us.myles.ViaVersion.api.protocol.ProtocolVersion;
+
+import java.io.*;
 
 public class Bungee extends Plugin implements Listener{
 	
@@ -73,7 +68,7 @@ public class Bungee extends Plugin implements Listener{
 	@EventHandler
 	public void join(ServerConnectedEvent e) throws IOException{
 		ProxiedPlayer p = e.getPlayer();
-		Configuration config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(getDataFolder(), "config.yml")); 
+		Configuration config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(getDataFolder(), "config.yml"));
 		if(Bungee.isProtocolSupport()){
 			if(Via.getAPI().getPlayerVersion(p) == ProtocolVersion.v1_8.getId()){
 				p.sendMessage(new TextComponent(config.getString("v1_8").replace("&", "§")));
@@ -122,7 +117,9 @@ public class Bungee extends Plugin implements Listener{
 			} else if(Via.getAPI().getPlayerVersion(p) == ProtocolVersion.v1_15.getId()){
 				p.sendMessage(new TextComponent(config.getString("v1_15").replace("&", "§")));
 			} else if(Via.getAPI().getPlayerVersion(p) == ProtocolVersion.v1_15_1.getId()){
-				p.sendMessage(new TextComponent(config.getString("v1_15").replace("&", "§")));
+				p.sendMessage(new TextComponent(config.getString("v1_15_1").replace("&", "§")));
+			} else if(Via.getAPI().getPlayerVersion(p) == ProtocolVersion.v1_15_2.getId()){
+				p.sendMessage(new TextComponent(config.getString("v1_15_2").replace("&", "§")));
 			}
 		} else {
 			if(Via.getAPI().getPlayerVersion(p) == ProtocolVersion.v1_8.getId()){
@@ -169,6 +166,8 @@ public class Bungee extends Plugin implements Listener{
 				p.sendMessage(new TextComponent(config.getString("v1_15").replace("&", "§")));
 			}  else if(Via.getAPI().getPlayerVersion(p) == ProtocolVersion.v1_15_1.getId()){
 				p.sendMessage(new TextComponent(config.getString("v1_15_1").replace("&", "§")));
+			} else if(Via.getAPI().getPlayerVersion(p) == ProtocolVersion.v1_15_2.getId()){
+				p.sendMessage(new TextComponent(config.getString("v1_15_2").replace("&", "§")));
 			}
 		}
 	}
