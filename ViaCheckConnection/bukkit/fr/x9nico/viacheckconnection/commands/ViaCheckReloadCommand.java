@@ -14,6 +14,17 @@ public class ViaCheckReloadCommand implements CommandExecutor {
         if(commandSender instanceof Player){
             Player player = (Player)commandSender;
             if(command.getName().equalsIgnoreCase("viacheck")){
+                    if(player.isOp() || player.hasPermission("viacheck.use")){
+                        if(args.length == 0){
+                            player.sendMessage("§cUsage: /viacheck <value>");
+                        } else if(args[0].equalsIgnoreCase("reload")){
+                            Main.getInstance().reloadConfig();
+                            Main.getInstance().saveConfig();
+                            player.sendMessage("§aThe config file has been updated on the server! Try now!");
+                        }
+                    } else {
+                        player.sendMessage("You must be OP on the server for execute this command!");
+                    }
                 if(player.isOp() || player.hasPermission("viacheck.use")){
                     if(args.length == 0){
                         player.sendMessage("§cUsage: /viacheck <value>");
@@ -28,7 +39,13 @@ public class ViaCheckReloadCommand implements CommandExecutor {
             }
         } else {
             if(command.getName().equalsIgnoreCase("viacheck")){
-                    commandSender.sendMessage(ChatColor.RED+"You must be a Player for execute this command!");
+                if(args.length == 0){
+                    commandSender.sendMessage(ChatColor.RED+"Usage: /viacheck <value>");
+                } else if(args[0].equalsIgnoreCase("reload")){
+                    Main.getInstance().reloadConfig();
+                    Main.getInstance().saveConfig();
+                    commandSender.sendMessage(ChatColor.GREEN+"The config file has been updated on the server! Try now!");
+                }
                 }
         }
 
