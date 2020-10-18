@@ -8,7 +8,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="spigot-1.8.8-R0.1-SNAPSHOT-latest" level="project" />
-    <orderEntry type="library" name="BungeeCord" level="project" />
     <orderEntry type="library" name="ViaVersion-2.1.4-19w37a" level="project" />
+    <orderEntry type="library" name="spigot-1.9.4" level="project" />
+    <orderEntry type="library" name="BungeeCord" level="project" />
+    <orderEntry type="library" name="ViaVersion-3.2.0-1.16.4-pre1" level="project" />
   </component>
 </module>
